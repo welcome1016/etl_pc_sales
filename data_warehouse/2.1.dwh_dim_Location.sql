@@ -1,5 +1,3 @@
-USE dwh_pc_sales;
-GO
 
 IF NOT EXISTS (
     SELECT 1

@@ -1,4 +1,5 @@
-
+use stg_pc_sales;
+go
 
 IF NOT EXISTS (
     SELECT 1
@@ -27,5 +28,3 @@ SELECT DISTINCT
     Country_or_State,
     Province_or_City
 FROM stg_pc_sales.dbo.Raw_Pc_Data;
-
-drop table stg_pc_sales.dbo.dim_location;
