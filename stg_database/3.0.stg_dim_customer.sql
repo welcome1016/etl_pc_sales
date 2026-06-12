@@ -1,6 +1,8 @@
 USE stg_pc_sales;
 GO
 
+------create dim_customer table if it does not exist
+
 IF NOT EXISTS (
     SELECT 1
     FROM sys.tables
@@ -18,6 +20,9 @@ BEGIN
     );
 END;
 GO
+
+-------------load  data into dim_customer table from Raw_Pc_Data table
+
 INSERT INTO stg_pc_sales.dbo.dim_customer
 (
     Customer_Name,
@@ -26,6 +31,8 @@ INSERT INTO stg_pc_sales.dbo.dim_customer
     Customer_Email_Address
      
 )
+-------considering only distinct customers to avoid duplicates in the dimension table
+
 SELECT DISTINCT
     Customer_Name,
     Customer_Surname,
